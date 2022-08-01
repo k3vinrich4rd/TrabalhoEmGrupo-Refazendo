@@ -1,17 +1,14 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Vendedor extends Usuario{
+public class Vendedor extends Usuario {
+    List<Usuario> listaDeVendedores = new ArrayList<>();
+
     public Vendedor(String nome, String email, String cpf) {
         super(nome, email, cpf);
     }
-    public Vendedor(){
 
-    }
-    List<Usuario> listaDeVendedores = new ArrayList<>();
-
-    @Override
-    public void listarUsuario() {
+    public Vendedor() {
 
     }
 
@@ -27,6 +24,7 @@ public class Vendedor extends Usuario{
         }
 
     }
+
     public Boolean procurarCpf(List<Usuario> listaUsuarios, String cpf) {
         for (Usuario usuario : listaUsuarios) {
             if (usuario.getCpf().equals(cpf)) {
@@ -35,4 +33,17 @@ public class Vendedor extends Usuario{
         }
         return false;
     }
+
+    @Override
+    public void listarUsuario() {
+        for (Usuario listaDeVendedore : listaDeVendedores) {
+            System.out.println("Nome do vendedor: " + listaDeVendedore.getNome());
+            System.out.println("E-mail do vendedor: " + listaDeVendedore.getEmail());
+            System.out.println("Cpf do vendedor: " + listaDeVendedore.getCpf());
+            System.out.println();
+        }
+    }
 }
+
+
+

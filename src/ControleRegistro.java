@@ -10,35 +10,7 @@ import java.util.Scanner;
         List<Vendas> listaDeVendas = new ArrayList<>();
         Scanner input = new Scanner(System.in);
 
-        public void cadastrarVendedor() {
-            System.out.println("\n-------------------------------------");
-            System.out.print("Informações de cadastro - Vendedor\n");
-            System.out.println("-------------------------------------");
-            System.out.print("Informe seu nome: ");
-            String nomeVendedor = input.nextLine();
-            System.out.print("Informe seu e-mail: ");
-            String emailVendedor = input.nextLine();
-            System.out.print("Informe seu cpf: ");
-            String cpfVendedor = input.nextLine();
-            System.out.println();
 
-            if (!procurarCpf(listaDeVendedores, cpfVendedor)) {
-                Usuario vendedor = new Vendedor(nomeVendedor, emailVendedor, cpfVendedor);
-                listaDeVendedores.add(vendedor);
-                System.out.println("O seu cadastrado foi efetuado com sucesso.\n");
-            } else {
-                System.out.println("ERRO: Vendedor(a) já cadastrado(a).");
-            }
-        }
-
-        public void listarVendedor() {
-            for (Usuario listaDeVendedore : listaDeVendedores) {
-                System.out.println("Nome do vendedor: " + listaDeVendedore.getNome());
-                System.out.println("E-mail do vendedor: " + listaDeVendedore.getEmail());
-                System.out.println("Cpf do vendedor: " + listaDeVendedore.getCpf());
-                System.out.println();
-            }
-        }
 
         public void cadastrarCliente() {
             System.out.println("\n-------------------------------------");
@@ -62,14 +34,7 @@ import java.util.Scanner;
             }
         }
 
-        public void listarClientes() {
-            for (Usuario listaDeCliente : listaDeClientes) {
-                System.out.println("Nome do cliente: " + listaDeCliente.getNome());
-                System.out.println("E-mail do cliente: " + listaDeCliente.getEmail());
-                System.out.println("Cpf do cliente: " + listaDeCliente.getCpf());
-                System.out.println();
-            }
-        }
+
 
 
         public void cadastrarVenda() {
