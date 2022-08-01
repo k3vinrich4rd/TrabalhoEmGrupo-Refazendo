@@ -5,6 +5,8 @@ public class Main {
         boolean continuar = true;
         Scanner input = new Scanner(System.in);
         ControleRegistro controleRegistro = new ControleRegistro();
+        Vendedor vendedor = new Vendedor();
+
 
         System.out.println("-----------------------------------------------");
         System.out.println("Bem-vindo(a) ao menu de registro de vendas.");
@@ -24,7 +26,18 @@ public class Main {
             int opcao = input.nextInt();
             switch (opcao) {
                 case 1:
-                    controleRegistro.cadastrarVendedor();
+                    System.out.println("\n-------------------------------------");
+                    System.out.print("Informações de cadastro - Vendedor\n");
+                    System.out.println("-------------------------------------");
+                    System.out.print("Informe seu nome: ");
+                    String nomeVendedor = input.nextLine();
+                    System.out.print("Informe seu e-mail: ");
+                    String emailVendedor = input.nextLine();
+                    System.out.print("Informe seu cpf: ");
+                    String cpfVendedor = input.nextLine();
+                    System.out.println();
+                    vendedor.cadastrarUsuario(nomeVendedor, emailVendedor,cpfVendedor);
+
                     break;
                 case 2:
                     controleRegistro.cadastrarCliente();
@@ -36,7 +49,7 @@ public class Main {
                     System.out.println("\n----------------------------");
                     System.out.println("Vendedores cadastrados: ");
                     System.out.println("------------------------------");
-                    controleRegistro.listarVendedor();
+                    vendedor.listarUsuario();
                     break;
                 case 5:
                     System.out.println("\n----------------------------");

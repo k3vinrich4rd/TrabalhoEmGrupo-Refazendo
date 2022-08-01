@@ -10,6 +10,9 @@ public abstract class Usuario implements Cadastrar, Listar{
         this.cpf = cpf;
     }
 
+    protected Usuario() {
+    }
+
     public String getNome() {
         return nome;
     }
