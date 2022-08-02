@@ -1,4 +1,4 @@
-public abstract class Usuario implements Cadastrar, Listar{
+public abstract class Usuario implements Cadastrar, Listar {
 
     private String nome;
     private String email;

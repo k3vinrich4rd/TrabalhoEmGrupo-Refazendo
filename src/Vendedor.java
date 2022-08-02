@@ -43,6 +43,14 @@ public class Vendedor extends Usuario {
             System.out.println();
         }
     }
+
+    public List<Usuario> getListaDeVendedores() {
+        return listaDeVendedores;
+    }
+
+    public void setListaDeVendedores(List<Usuario> listaDeVendedores) {
+        this.listaDeVendedores = listaDeVendedores;
+    }
 }
 
 

@@ -45,5 +45,11 @@ public class Cliente extends Usuario {
         }
     }
 
+    public List<Usuario> getListaDeClientes() {
+        return listaDeClientes;
+    }
 
+    public void setListaDeClientes(List<Usuario> listaDeClientes) {
+        this.listaDeClientes = listaDeClientes;
+    }
 }

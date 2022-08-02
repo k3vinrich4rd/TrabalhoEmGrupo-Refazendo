@@ -7,7 +7,7 @@ public class Main {
         ControleRegistro controleRegistro = new ControleRegistro();
         Vendedor vendedor = new Vendedor();
         Cliente cliente = new Cliente();
-        Vendas2 vendas2 = new Vendas2();
+        Vendas vendas = new Vendas();
 
         System.out.println("-----------------------------------------------");
         System.out.println("Bem-vindo(a) ao menu de registro de vendas.");
@@ -53,12 +53,19 @@ public class Main {
                     String cpfCliente = input.next();
                     System.out.println();
                     cliente.cadastrarUsuario(nomeCliente, emailCliente, cpfCliente);
+
                     break;
                 case 3:
-                    System.out.println("Informa CPF");
-                    String cpf = input.nextLine();
+                    System.out.print("Informe o Cpf do vendedor: ");
+                    String cpfVendedorVenda = input.next();
+                    System.out.print("Informe o Cpf do cliente: ");
+                    String cpfClienteVenda = input.next();
+                    System.out.print("Informe a data de registro da venda: ");
+                    String dataRegistroDoProduto = input.next();
+                    System.out.print("Informe o valor: ");
+                    double valorVendaDoProduto = input.nextDouble();
+                    vendas.cadastrarVenda(cpfVendedorVenda, cpfClienteVenda, dataRegistroDoProduto, valorVendaDoProduto);
 
-                    controleRegistro.cadastrarVenda();
                     break;
                 case 4:
                     System.out.println("\n----------------------------");
@@ -77,7 +84,7 @@ public class Main {
                     System.out.println("\n----------------------------");
                     System.out.println("Vendas cadastradas: ");
                     System.out.println("------------------------------");
-                    controleRegistro.listarVendas();
+                    vendas.listarVenda();
                     break;
                 case 7:
                     continuar = false;
