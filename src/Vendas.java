@@ -29,9 +29,9 @@ public class Vendas {
     public void cadastrarVenda(String cpfVendedor, String cpfCliente, String dataRegistroDaVenda, double valorVenda) {
         Boolean cpfVendedorExistente = vendedor.procurarCpf(vendedor.getListaDeVendedores(), cpfVendedor);
         Boolean cpfClienteExistente = cliente.procurarCpf(cliente.getListaDeClientes(), cpfCliente);
-        if (Boolean.FALSE.equals(cpfVendedorExistente)) {
+        if (Boolean.FALSE.equals(cpfVendedorExistente)) { // possível problema? (perguntar para a Grazi)
             System.out.println("Erro, efetue o cadastro do vendedor antes de cadastrar uma venda");
-        } else if (Boolean.FALSE.equals(cpfClienteExistente)) {
+        } else if (Boolean.FALSE.equals(cpfClienteExistente)) {// possível problema? (perguntar para a Grazi)
             System.out.println("Erro, efetue o cadastro do cliente antes de cadastrar uma venda");
         } else {
             Vendas vendas = new Vendas(cpfVendedor, cpfCliente, dataRegistroDaVenda, valorVenda);
@@ -41,7 +41,7 @@ public class Vendas {
 
     }
 
-    public void listarVenda() {
+    public void listarVenda() { // possível problema? (perguntar para a Grazi)
         for (Vendas vendas : listaDeVendas) {
             System.out.println("Cpf do vendedor: " + vendas.getCpfVendedor());
             System.out.println("Data de registro da venda: " + vendas.getDataRegistroDaVenda());
