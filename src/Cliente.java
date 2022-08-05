@@ -17,12 +17,17 @@ public class Cliente extends Usuario {
     @Override
     public void cadastrarUsuario(String nome, String email, String cpf) {
         Boolean cpfExistente = validacoes.procurarCpf(listaDeClientes, cpf);
-        if (Boolean.FALSE.equals(cpfExistente)) {
+        Boolean emailExistete = validacoes.procurarEmail(listaDeClientes, email);
+        if (!email.contains("@")) {
+            System.out.println("Erro: E-mail inválido");
+        } else if (Boolean.TRUE.equals(cpfExistente)) {
+            System.out.println("Erro: cpf já cadastro");
+        } else if (Boolean.TRUE.equals(emailExistete)) {
+            System.out.println("Erro: E-mail já cadastrado");
+        } else {
             Usuario cliente = new Cliente(nome, email, cpf);
             listaDeClientes.add(cliente);
             System.out.println("O seu cadastrado foi efetuado com sucesso.\n");
-        } else {
-            System.out.println("ERRO: Cliente já cadastrado(a).");
         }
     }
 

@@ -9,6 +9,7 @@ public class Vendas {
 
     Vendedor vendedor = new Vendedor();
 
+    Validacoes validacoes = new Validacoes();
     Cliente cliente = new Cliente();
 
     List<Vendas> listaDeVendas = new ArrayList<>();
@@ -26,16 +27,17 @@ public class Vendas {
 
     }
 
-    public void cadastrarVenda(String cpfVendedor, String cpfCliente, String dataRegistroDaVenda, double valorVenda) {
-        Boolean cpfVendedorExistente = vendedor.procurarCpf(vendedor.getListaDeVendedores(), cpfVendedor);
-        Boolean cpfClienteExistente = cliente.procurarCpf(cliente.getListaDeClientes(), cpfCliente);
-        if (Boolean.FALSE.equals(cpfVendedorExistente)) { // possível problema? (perguntar para a Grazi)
+    public void cadastrarVenda(String cpfVendedor, List<Usuario> listaDeVendedores,String cpfCliente, List<Usuario> listaDeClientes, String dataRegistroDaVenda, double valorVenda) {
+        Boolean cpfVendedorExistente = validacoes.procurarCpf(listaDeVendedores, cpfVendedor);
+        Boolean cpfClienteExistente = validacoes.procurarCpf(listaDeClientes, cpfCliente);
+        if (Boolean.FALSE.equals(cpfVendedorExistente)) {
             System.out.println("Erro, efetue o cadastro do vendedor antes de cadastrar uma venda");
         } else if (Boolean.FALSE.equals(cpfClienteExistente)) {// possível problema? (perguntar para a Grazi)
             System.out.println("Erro, efetue o cadastro do cliente antes de cadastrar uma venda");
         } else {
             Vendas vendas = new Vendas(cpfVendedor, cpfCliente, dataRegistroDaVenda, valorVenda);
             listaDeVendas.add(vendas);
+            System.out.println("O cadastrado da sua venda foi efetuado com sucesso");
         }
 
 

@@ -64,7 +64,7 @@ public class Main {
                     String dataRegistroDoProduto = input.next();
                     System.out.print("Informe o valor: ");
                     double valorVendaDoProduto = input.nextDouble();
-                    vendas.cadastrarVenda(cpfVendedorVenda, cpfClienteVenda, dataRegistroDoProduto, valorVendaDoProduto);
+                    vendas.cadastrarVenda(cpfVendedorVenda,vendedor.getListaDeVendedores(), cpfClienteVenda,cliente.getListaDeClientes(), dataRegistroDoProduto, valorVendaDoProduto);
 
                     break;
                 case 4:

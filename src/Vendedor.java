@@ -16,16 +16,21 @@ public class Vendedor extends Usuario {
     @Override
     public void cadastrarUsuario(String nome, String email, String cpf) {
         Boolean cpfExistente = validacoes.procurarCpf(listaDeVendedores, cpf);
-        if (Boolean.FALSE.equals(cpfExistente)) {
+        Boolean emailExistete = validacoes.procurarEmail(listaDeVendedores, email);
+        if (!email.contains("@")) {
+            System.out.println("Erro: E-mail inválido");
+        } else if (Boolean.TRUE.equals(emailExistete)) {
+            System.out.println("Erro: E-mail já cadastrado");
+        } else if (Boolean.TRUE.equals(cpfExistente)) {
+            System.out.println("Erro: Cpf já cadastrado");
+        } else {
             Usuario vendedor = new Vendedor(nome, email, cpf);
             listaDeVendedores.add(vendedor);
             System.out.println("O seu cadastrado foi efetuado com sucesso.\n");
-        } else {
-            System.out.println("ERRO: Vendedor(a) já cadastrado(a).");
         }
 
-    }
 
+    }
 
 
     @Override
@@ -41,6 +46,7 @@ public class Vendedor extends Usuario {
     public List<Usuario> getListaDeVendedores() {
         return listaDeVendedores;
     }
+
 
     public void setListaDeVendedores(List<Usuario> listaDeVendedores) {
         this.listaDeVendedores = listaDeVendedores;
