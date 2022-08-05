@@ -3,6 +3,7 @@ import java.util.List;
 
 public class Vendedor extends Usuario {
     List<Usuario> listaDeVendedores = new ArrayList<>();
+    Validacoes validacoes = new Validacoes();
 
     public Vendedor(String nome, String email, String cpf) {
         super(nome, email, cpf);
@@ -14,7 +15,7 @@ public class Vendedor extends Usuario {
 
     @Override
     public void cadastrarUsuario(String nome, String email, String cpf) {
-        Boolean cpfExistente = procurarCpf(listaDeVendedores, cpf);
+        Boolean cpfExistente = validacoes.procurarCpf(listaDeVendedores, cpf);
         if (Boolean.FALSE.equals(cpfExistente)) {
             Usuario vendedor = new Vendedor(nome, email, cpf);
             listaDeVendedores.add(vendedor);
@@ -25,14 +26,7 @@ public class Vendedor extends Usuario {
 
     }
 
-    public Boolean procurarCpf(List<Usuario> listaUsuarios, String cpf) {
-        for (Usuario usuario : listaUsuarios) {
-            if (usuario.getCpf().equals(cpf)) {
-                return true;
-            }
-        }
-        return false;
-    }
+
 
     @Override
     public void listarUsuario() {
