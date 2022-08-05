@@ -4,6 +4,7 @@ import java.util.List;
 public class Cliente extends Usuario {
 
     List<Usuario> listaDeClientes = new ArrayList<>();
+    Validacoes validacoes = new Validacoes();
 
     public Cliente(String nome, String email, String cpf) {
         super(nome, email, cpf);
@@ -15,7 +16,7 @@ public class Cliente extends Usuario {
 
     @Override
     public void cadastrarUsuario(String nome, String email, String cpf) {
-        Boolean cpfExistente = procurarCpf(listaDeClientes, cpf);
+        Boolean cpfExistente = validacoes.procurarCpf(listaDeClientes, cpf);
         if (Boolean.FALSE.equals(cpfExistente)) {
             Usuario cliente = new Cliente(nome, email, cpf);
             listaDeClientes.add(cliente);
@@ -23,15 +24,6 @@ public class Cliente extends Usuario {
         } else {
             System.out.println("ERRO: Cliente já cadastrado(a).");
         }
-    }
-
-    public Boolean procurarCpf(List<Usuario> listaUsuarios, String cpf) {
-        for (Usuario usuario : listaUsuarios) {
-            if (usuario.getCpf().equals(cpf)) {
-                return true;
-            }
-        }
-        return false;
     }
 
 
