@@ -4,10 +4,10 @@ public class Main {
     public static void main(String[] args) {
         boolean continuar = true;
         Scanner input = new Scanner(System.in);
-        ControleRegistro controleRegistro = new ControleRegistro();
         Vendedor vendedor = new Vendedor();
         Cliente cliente = new Cliente();
         Vendas vendas = new Vendas();
+
 
         System.out.println("-----------------------------------------------");
         System.out.println("Bem-vindo(a) ao menu de registro de vendas.");
@@ -21,7 +21,9 @@ public class Main {
             System.out.println("Digite o número [4] - Para exibir os vendedores cadastrados");
             System.out.println("Digite o número [5] - Para exibir os clientes cadastrados");
             System.out.println("Digite o número [6] - Para exibir vendas cadastradas");
-            System.out.println("Digite o número [7] - Para sair do sistema de registro\n");
+            System.out.println("Digite o número [7] - Para pesquisar todas as suas compras feitas (Cliente)");
+            System.out.println("Digite o número [8] - Para pesquisar todas as suas vendas feitas (Vendedor)");
+            System.out.println("Digite o número [9] - Para sair do sistema de registro\n");
 
             System.out.print("Informe um número e execute uma das opções apresentadas: ");
             int opcao = input.nextInt();
@@ -64,7 +66,7 @@ public class Main {
                     String dataRegistroDoProduto = input.next();
                     System.out.print("Informe o valor: ");
                     double valorVendaDoProduto = input.nextDouble();
-                    vendas.cadastrarVenda(cpfVendedorVenda,vendedor.getListaDeVendedores(), cpfClienteVenda,cliente.getListaDeClientes(), dataRegistroDoProduto, valorVendaDoProduto);
+                    vendas.cadastrarVenda(cpfVendedorVenda, vendedor.getListaDeVendedores(), cpfClienteVenda, cliente.getListaDeClientes(), dataRegistroDoProduto, valorVendaDoProduto);
 
                     break;
                 case 4:
@@ -86,7 +88,26 @@ public class Main {
                     System.out.println("------------------------------");
                     vendas.listarVenda();
                     break;
+
                 case 7:
+                    System.out.print("Informe o seu Cpf: ");
+                    String cpfClientePesquisa = input.next();
+                    System.out.println("\n----------------------------");
+                    System.out.println("Resultado da pesquisa: ");
+                    System.out.println("------------------------------");
+                    vendas.pesquisaComprasCliente(vendas.getListaDeVendas(), cpfClientePesquisa);
+                    break;
+
+                case 8:
+                    System.out.print("Informe seu E-mail: ");
+                    String emailVendedorPesquisa = input.next();
+                    System.out.println("\n----------------------------");
+                    System.out.println("Resultado da pesquisa: ");
+                    System.out.println("------------------------------");
+                    vendas.buscaVendasVendedor(vendedor.getListaDeVendedores(), emailVendedorPesquisa, vendas.getListaDeVendas());
+                    break;
+
+                case 9:
                     continuar = false;
                     System.out.println("Ok, saindo do sistema de registro... ");
                     break;

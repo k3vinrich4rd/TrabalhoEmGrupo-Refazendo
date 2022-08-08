@@ -32,7 +32,6 @@ public class Vendedor extends Usuario {
 
     }
 
-
     @Override
     public void listarUsuario() {
         for (Usuario listaDeVendedore : listaDeVendedores) {

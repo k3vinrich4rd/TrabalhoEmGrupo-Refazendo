@@ -1,0 +1,12 @@
+Ideias para fazer o método de pesquisa das vendas:
+
+1º Ideia Usar a classe ControleRegistro para fazer o método de pesquisar compras feitas para cliente
+e vendas feitas para o vendedor
+
+Porquê: não é possível fazer uma pesquisa de compras feitas (para clientes)
+e vendas feitas (para vendedor) sem ter um controle de registro
+
+como fazer isso: estendendo o switch da classe main com mais duas opções, onde essas duas opções será
+direcionadas para clientes cadastrados e para vendedores cadastrados
+
+
